@@ -1,8 +1,8 @@
 import sys
+import platform
 from PyQt5 import QtCore
 from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt)
+from PySide2.QtCore import (QCoreApplication, Qt)
 from PySide2.QtWidgets import *
 import openpyxl
 import time
@@ -126,6 +126,8 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
                     ws[f'F{i}'] = self.currency
                     break
                 i += 1
+            save_path = QFileDialog.getSaveFileName()[0]
+            wb.save(save_path + '.xlsx')
             wb.save('LOG.xlsx')
             self.Log_lable.setText(res)
     def info_collection(self):
@@ -289,5 +291,4 @@ Window = Theapp()
 def main():
     Window.show()
     app.exec_()
-if __name__ == '__main__':
-    main()
+main()
