@@ -7,10 +7,10 @@ from PySide2.QtWidgets import *
 import openpyxl
 import time
 import icons
-import backup
+import main_iu
 
 WINDOW_SIZE = 0
-class Theapp(QMainWindow, backup.Ui_MainWindow):
+class Theapp(QMainWindow, main_iu.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)  # Это нужно для инициализации дизайна
@@ -28,6 +28,7 @@ class Theapp(QMainWindow, backup.Ui_MainWindow):
         self.ConfirmButton.clicked.connect(lambda: self.info_processing())
         self.SettingsConfirmButton.clicked.connect(lambda: self.get_curency())
         self.ClearLOGButton.clicked.connect(lambda: self.clean_LOG())
+        self.Log_lable.setText('App is running.')
         self.PleasureBar.setValue(0)
         self.RestBar.setValue(0)
         self.RemainsBar.setValue(0)
