@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>close.png</file>
+    <file>home.png</file>
+    <file>icons8-user-menu-male-48.png</file>
+    <file>minimize.png</file>
+    <file>more.png</file>
+    <file>restore.png</file>
+    <file>settings.png</file>
+    <file>Statistic.png</file>
+  </qresource>
+</RCC>
