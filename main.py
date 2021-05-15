@@ -20,6 +20,8 @@ class Starting(QMainWindow, starting.Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.counter = 0
+        self.setWindowIcon(QtGui.QIcon('D:\projects\Cash_Helper\icon1.ico'))
+        self.setWindowTitle('Loading...')
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.progress)
@@ -48,6 +50,8 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
         self.rest_percent = 0
         self.remains_percent = 0
         self.setupUi(self)  # Это нужно для инициализации дизайна
+        self.setWindowIcon(QtGui.QIcon('D:\projects\Cash_Helper\icon1.ico'))
+        self.setWindowTitle('Cash Helper')
         self.minimizeButton.clicked.connect(lambda: self.showMinimized())
         self.restoreButton.clicked.connect(lambda: self.restore_or_minimize())
         self.closeButton.clicked.connect(lambda: self.close())
@@ -65,9 +69,19 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
         self.ClearLOGButton.clicked.connect(lambda: self.clean_LOG())
         self.SaveAgainButton.clicked.connect(lambda: self.save_again())
         self.Log_lable.setText('App is running.')
+        self.rest_percent = 0
+        self.pleasure_percent = 0
+        self.remains_percent = 0
         self.PleasureBar.setValue(0)
         self.RestBar.setValue(0)
         self.RemainsBar.setValue(0)
+        self.CircularBar.rpb_setRange(0, 100)
+        self.CircularBar.rpb_setBarStyle('Hybrid1')
+        self.CircularBar.rpb_setMaximumSize(290, 290)
+        self.CircularBar.rpb_setPathWidth(10)
+        self.CircularBar.rpb_setPathColor((69, 69, 69))
+        self.CircularBar.rpb_setLineWidth(15)
+        self.CircularBar.rpb_setCircleRatio(1)
         self.progressBarValue(self.info_collection())
         def moveWindow(e):
             if self.isMaximized() == False:
@@ -150,8 +164,8 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
             self.salary = int(self.salary)
             self.rest = int(self.rest)
             self.pleasure = int(self.pleasure)
-            self.pleasure_percent = (self.pleasure / self.salary) * 100
             self.rest_percent = (self.rest / self.salary) * 100
+            self.pleasure_percent = (self.pleasure / self.salary) * 100
             remains = self.salary - (self.pleasure + self.rest)
             self.remains_percent = (remains / self.salary) * 100
             try:
@@ -189,6 +203,9 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
         try:
             wb = openpyxl.load_workbook('LOG.xlsx')
             ws = wb.active
+            rest_sum = 0
+            pleasure_sum = 0
+            remains_sum = 0
             item = 2
             sum = 0
             salary = 0
@@ -198,32 +215,30 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
                 pleasure = pleasure.split(' ')
                 rest = ws[f'D{item}'].value
                 rest = rest.split(' ')
+                remains = int(round(salar)) - (int(rest[1]) + int(pleasure[1]))
+                rest_sum += int(rest[1])
+                pleasure_sum += int(pleasure[1])
+                remains_sum += int(remains)
                 sum += int(pleasure[1]) + int(rest[1])
                 salary += int(round(salar))
                 item += 1
             try:
                 percent = (sum / salary) * 100
+                self.rest_percent = (rest_sum / salary) * 100
+                self.pleasure_percent = (pleasure_sum / salary) * 100
+                self.remains_percent = (remains_sum / salary) * 100
             except ZeroDivisionError:
                 percent = 0
+                self.rest_percent = 0
+                self.pleasure_percent = 0
+                self.remains_percent = 0
             return int(round(percent))
         except FileNotFoundError:
             percent = 0
             return percent
     def progressBarValue(self, value):
-        styleSheet = '''
-        QFrame {
-            border-radius: 150;
-            background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{STOP_1} rgba(34, 0, 146, 0), stop:{STOP_2} rgba(158, 158, 158, 255));
-        }
-        '''
-        progress = (100 - value) / 100.0
-        stop_1 = str(progress - 0.001)
-        stop_2 = str(progress)
-        newStyleSheet = styleSheet.replace('{STOP_1}', stop_1).replace('{STOP_2}', stop_2)
-        self.CircularProgress.setStyleSheet(newStyleSheet)
-        self.coastsPercent.setText('{value}%'.replace('{value}', str(value)))
-
-    def barsValue(self, pleasureValue, restValue):
+        self.CircularBar.rpb_setValue(value)
+    def barsValue(self, pleasureValue, restValue, remainsValue):
         if pleasureValue != 0 or restValue != 0:
             self.pleasureanim = QPropertyAnimation(self.PleasureBar, b'value')
             self.pleasureanim.setDuration(2000)
@@ -291,9 +306,8 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
                 }
                 ''')
 
-            remainsValue = 100 - (pleasureValue+restValue)
             self.remainsAnim = QPropertyAnimation(self.RemainsBar, b'value')
-            self.remainsAnim.setDuration(950)
+            self.remainsAnim.setDuration(1050)
             self.remainsAnim.setStartValue(0)
             self.remainsAnim.setEndValue(remainsValue)
             self.remainsAnim.setEasingCurve(QtCore.QEasingCurve.Linear)
@@ -326,7 +340,7 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
                 ''')
     def barssetup(self):
         self.stackedWidget.setCurrentWidget(self.MoreStatistic_page)
-        self.barsValue(self.pleasure_percent, self.rest_percent)
+        self.barsValue(round(self.pleasure_percent), round(self.rest_percent), round(self.remains_percent))
     def barsdisable(self):
         self.PleasureBar.setValue(0)
         self.RestBar.setValue(0)
@@ -357,6 +371,7 @@ class Theapp(QMainWindow, main_iu.Ui_MainWindow):
         wb = openpyxl.load_workbook('LOG.xlsx')
         save_path = QFileDialog.getSaveFileName()[0]
         wb.save(save_path + '.xlsx')
+
 app = QApplication(sys.argv)
 Window = Theapp()
 Start_Window = Starting()

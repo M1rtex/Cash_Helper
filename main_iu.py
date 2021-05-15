@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_uiXFNINt.ui'
+## Form generated from reading UI file 'main_uiEvAdUA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,6 +11,8 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
+from PySide2extn.RoundProgressBar import roundProgressBar
 
 
 class Ui_MainWindow(object):
@@ -83,6 +85,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.main_windo_title_bar)
+        self.label_2.setObjectName(u"label_2")
+        font = QFont()
+        font.setFamily(u"a_Concepto")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet(u"QLabel {\n"
+"	color:white;\n"
+"}")
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_2)
+
 
         self.horizontalLayout_2.addWidget(self.main_windo_title_bar)
 
@@ -280,13 +298,13 @@ class Ui_MainWindow(object):
         self.Salary_lable = QLabel(self.Info_input_frame)
         self.Salary_lable.setObjectName(u"Salary_lable")
         self.Salary_lable.setMinimumSize(QSize(70, 40))
-        font = QFont()
-        font.setFamily(u"a_Concepto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.Salary_lable.setFont(font)
+        font1 = QFont()
+        font1.setFamily(u"a_Concepto")
+        font1.setPointSize(12)
+        font1.setBold(False)
+        font1.setItalic(False)
+        font1.setWeight(50)
+        self.Salary_lable.setFont(font1)
         self.Salary_lable.setStyleSheet(u"QLabel {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -298,9 +316,9 @@ class Ui_MainWindow(object):
         self.Salary_lineEdit = QLineEdit(self.Info_input_frame)
         self.Salary_lineEdit.setObjectName(u"Salary_lineEdit")
         self.Salary_lineEdit.setMinimumSize(QSize(0, 40))
-        font1 = QFont()
-        font1.setPointSize(12)
-        self.Salary_lineEdit.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(12)
+        self.Salary_lineEdit.setFont(font2)
         self.Salary_lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -316,13 +334,13 @@ class Ui_MainWindow(object):
         self.Pleasure_lable = QLabel(self.Info_input_frame)
         self.Pleasure_lable.setObjectName(u"Pleasure_lable")
         self.Pleasure_lable.setMinimumSize(QSize(70, 40))
-        font2 = QFont()
-        font2.setFamily(u"a_Concepto")
-        font2.setPointSize(10)
-        font2.setBold(False)
-        font2.setItalic(False)
-        font2.setWeight(50)
-        self.Pleasure_lable.setFont(font2)
+        font3 = QFont()
+        font3.setFamily(u"a_Concepto")
+        font3.setPointSize(10)
+        font3.setBold(False)
+        font3.setItalic(False)
+        font3.setWeight(50)
+        self.Pleasure_lable.setFont(font3)
         self.Pleasure_lable.setStyleSheet(u"QLabel {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -334,7 +352,7 @@ class Ui_MainWindow(object):
         self.Pleasure_lineEdit = QLineEdit(self.Info_input_frame)
         self.Pleasure_lineEdit.setObjectName(u"Pleasure_lineEdit")
         self.Pleasure_lineEdit.setMinimumSize(QSize(0, 40))
-        self.Pleasure_lineEdit.setFont(font1)
+        self.Pleasure_lineEdit.setFont(font2)
         self.Pleasure_lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -350,7 +368,7 @@ class Ui_MainWindow(object):
         self.Rest_lable = QLabel(self.Info_input_frame)
         self.Rest_lable.setObjectName(u"Rest_lable")
         self.Rest_lable.setMinimumSize(QSize(70, 40))
-        self.Rest_lable.setFont(font)
+        self.Rest_lable.setFont(font1)
         self.Rest_lable.setStyleSheet(u"QLabel {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -362,7 +380,7 @@ class Ui_MainWindow(object):
         self.Rest_lineEdit = QLineEdit(self.Info_input_frame)
         self.Rest_lineEdit.setObjectName(u"Rest_lineEdit")
         self.Rest_lineEdit.setMinimumSize(QSize(0, 40))
-        self.Rest_lineEdit.setFont(font1)
+        self.Rest_lineEdit.setFont(font2)
         self.Rest_lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -378,13 +396,13 @@ class Ui_MainWindow(object):
         self.Log_lable = QLabel(self.Info_input_frame)
         self.Log_lable.setObjectName(u"Log_lable")
         self.Log_lable.setMinimumSize(QSize(312, 80))
-        font3 = QFont()
-        font3.setFamily(u"a_Concepto")
-        font3.setPointSize(10)
-        font3.setBold(True)
-        font3.setItalic(True)
-        font3.setWeight(75)
-        self.Log_lable.setFont(font3)
+        font4 = QFont()
+        font4.setFamily(u"a_Concepto")
+        font4.setPointSize(10)
+        font4.setBold(True)
+        font4.setItalic(True)
+        font4.setWeight(75)
+        self.Log_lable.setFont(font4)
         self.Log_lable.setStyleSheet(u"QLabel {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -398,13 +416,7 @@ class Ui_MainWindow(object):
         self.ConfirmButton = QPushButton(self.Info_input_frame)
         self.ConfirmButton.setObjectName(u"ConfirmButton")
         self.ConfirmButton.setMinimumSize(QSize(0, 40))
-        font4 = QFont()
-        font4.setFamily(u"a_Concepto")
-        font4.setPointSize(12)
-        font4.setBold(True)
-        font4.setItalic(True)
-        font4.setWeight(75)
-        self.ConfirmButton.setFont(font4)
+        self.ConfirmButton.setFont(font)
         self.ConfirmButton.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
@@ -430,6 +442,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.home_page)
         self.MoreStatistic_page = QWidget()
         self.MoreStatistic_page.setObjectName(u"MoreStatistic_page")
+        self.MoreStatistic_page.setLayoutDirection(Qt.LeftToRight)
         self.MoreStatistic_page.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -567,81 +580,36 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.CircularBarBase = QFrame(self.StatisticBase)
         self.CircularBarBase.setObjectName(u"CircularBarBase")
-        self.CircularBarBase.setMinimumSize(QSize(350, 350))
+        self.CircularBarBase.setMinimumSize(QSize(320, 320))
         self.CircularBarBase.setFrameShape(QFrame.NoFrame)
         self.CircularBarBase.setFrameShadow(QFrame.Raised)
         self.Container = QFrame(self.CircularBarBase)
         self.Container.setObjectName(u"Container")
-        self.Container.setGeometry(QRect(40, 30, 280, 280))
+        self.Container.setGeometry(QRect(30, 40, 280, 280))
         self.Container.setStyleSheet(u"QFrame {\n"
+"	border: 5px solid transparent;\n"
 "	border-radius: 140px;\n"
-"	background-color: rgb(122, 142, 149);\n"
 "}")
-        self.Container.setFrameShape(QFrame.NoFrame)
-        self.Container.setFrameShadow(QFrame.Raised)
-        self.frame = QFrame(self.Container)
-        self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(10, 0, 251, 271))
-        self.frame.setMinimumSize(QSize(145, 0))
-        self.frame.setStyleSheet(u"background-color: none;")
-        self.gridLayout = QGridLayout(self.frame)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.coastsPercent = QLabel(self.frame)
-        self.coastsPercent.setObjectName(u"coastsPercent")
+        self.horizontalLayout_5 = QHBoxLayout(self.Container)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.CircularBar = roundProgressBar(self.Container)
+        self.CircularBar.setObjectName(u"CircularBar")
+        self.CircularBar.setMinimumSize(QSize(200, 200))
+        self.CircularBar.setStyleSheet(u"border-radius:0;")
+
+        self.horizontalLayout_5.addWidget(self.CircularBar)
+
+        self.label_3 = QLabel(self.CircularBarBase)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(0, -10, 350, 41))
         font6 = QFont()
-        font6.setFamily(u"a_Concepto")
-        font6.setPointSize(30)
-        self.coastsPercent.setFont(font6)
-        self.coastsPercent.setStyleSheet(u"background-color: none;\n"
-"color:#ffffffff")
-        self.coastsPercent.setAlignment(Qt.AlignCenter)
+        font6.setFamily(u"Segoe UI")
+        font6.setPointSize(22)
+        self.label_3.setFont(font6)
+        self.label_3.setStyleSheet(u"color:white;")
+        self.label_3.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.coastsPercent, 2, 0, 1, 1)
-
-        self.coastsConLable2 = QLabel(self.frame)
-        self.coastsConLable2.setObjectName(u"coastsConLable2")
-        self.coastsConLable2.setFont(font5)
-        self.coastsConLable2.setStyleSheet(u"background-color: none;\n"
-"color: #ffffffff")
-        self.coastsConLable2.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.coastsConLable2, 3, 0, 1, 1)
-
-        self.coastsConLable = QLabel(self.frame)
-        self.coastsConLable.setObjectName(u"coastsConLable")
-        self.coastsConLable.setMinimumSize(QSize(140, 50))
-        self.coastsConLable.setFont(font5)
-        self.coastsConLable.setStyleSheet(u"background-color: none;\n"
-"color: #ffffffff")
-        self.coastsConLable.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.coastsConLable, 1, 0, 1, 1)
-
-        self.CircularBG = QFrame(self.CircularBarBase)
-        self.CircularBG.setObjectName(u"CircularBG")
-        self.CircularBG.setGeometry(QRect(30, 20, 300, 300))
-        self.CircularBG.setStyleSheet(u"QFrame {\n"
-"	border-radius: 150;\n"
-"	background-color: rgba(127, 127, 127, 110);\n"
-"}")
-        self.CircularBG.setFrameShape(QFrame.NoFrame)
-        self.CircularBG.setFrameShadow(QFrame.Raised)
-        self.CircularProgress = QFrame(self.CircularBarBase)
-        self.CircularProgress.setObjectName(u"CircularProgress")
-        self.CircularProgress.setGeometry(QRect(30, 20, 300, 300))
-        self.CircularProgress.setMinimumSize(QSize(100, 100))
-        self.CircularProgress.setMaximumSize(QSize(300, 300))
-        self.CircularProgress.setStyleSheet(u"QFrame {\n"
-"	border-radius: 150;\n"
-"	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.749 rgba(34, 0, 146, 0), stop:0.750 rgba(158, 158, 158, 255));\n"
-"}")
-        self.CircularProgress.setFrameShape(QFrame.NoFrame)
-        self.CircularProgress.setFrameShadow(QFrame.Raised)
-        self.CircularBG.raise_()
-        self.CircularProgress.raise_()
-        self.Container.raise_()
-
-        self.verticalLayout_8.addWidget(self.CircularBarBase, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.verticalLayout_8.addWidget(self.CircularBarBase)
 
         self.MoreInfoButton = QPushButton(self.StatisticBase)
         self.MoreInfoButton.setObjectName(u"MoreInfoButton")
@@ -702,7 +670,7 @@ class Ui_MainWindow(object):
         self.CurrencyBox.addItem("")
         self.CurrencyBox.addItem("")
         self.CurrencyBox.setObjectName(u"CurrencyBox")
-        self.CurrencyBox.setFont(font1)
+        self.CurrencyBox.setFont(font2)
         self.CurrencyBox.setStyleSheet(u"QComboBox {\n"
 "	color:white;\n"
 "	border: 2px solid rgb(182, 212, 222);\n"
@@ -765,7 +733,7 @@ class Ui_MainWindow(object):
         self.SaveAgainButton = QPushButton(self.frame_2)
         self.SaveAgainButton.setObjectName(u"SaveAgainButton")
         self.SaveAgainButton.setMinimumSize(QSize(300, 30))
-        self.SaveAgainButton.setFont(font4)
+        self.SaveAgainButton.setFont(font)
         self.SaveAgainButton.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(0, 0, 0);\n"
 "	border-radius: 5;\n"
@@ -785,7 +753,7 @@ class Ui_MainWindow(object):
         self.ClearLOGButton = QPushButton(self.frame_2)
         self.ClearLOGButton.setObjectName(u"ClearLOGButton")
         self.ClearLOGButton.setMinimumSize(QSize(300, 30))
-        self.ClearLOGButton.setFont(font4)
+        self.ClearLOGButton.setFont(font)
         self.ClearLOGButton.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(0, 0, 0);\n"
 "	border-radius: 5;\n"
@@ -810,7 +778,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.addWidget(self.settings_page)
 
-        self.verticalLayout_3.addWidget(self.stackedWidget, 0, Qt.AlignHCenter)
+        self.verticalLayout_3.addWidget(self.stackedWidget, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
 
         self.horizontalLayout.addWidget(self.main_body_items)
@@ -831,6 +799,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.left_men_togle_btn.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Cash Helper", None))
         self.closeButton.setText("")
         self.minimizeButton.setText("")
         self.restoreButton.setText("")
@@ -849,9 +818,7 @@ class Ui_MainWindow(object):
         self.InfoRestLable.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#000000;\">YOUR </span><span style=\" font-size:18pt;\">Rest costs</span></p>", None))
         self.InfoRemainsLable.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#000000;\">YOUR </span><span style=\" font-size:18pt;\">Remains</span></p>", None))
         self.BackInfoButton.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
-        self.coastsPercent.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:72pt;\">0%</span></p></body></html>", None))
-        self.coastsConLable2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt;\">from </span><span style=\" font-size:16pt; font-weight:600; color:#000000;\">YOUR</span><span style=\" font-size:16pt;\"> salary</span></p></body></html>", None))
-        self.coastsConLable.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#000000;\">YOUR</span><span style=\" font-size:18pt; font-weight:600; color:#67ebff;\"/><span style=\" font-size:18pt;\">costs</span></p></body></html>", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Your <strong>coasts</strong> is:", None))
         self.MoreInfoButton.setText(QCoreApplication.translate("MainWindow", u"MORE", None))
         self.ChangeLabel.setText(QCoreApplication.translate("MainWindow", u"Change currency", None))
         self.CurrencyBox.setItemText(0, QCoreApplication.translate("MainWindow", u"RUB", None))
